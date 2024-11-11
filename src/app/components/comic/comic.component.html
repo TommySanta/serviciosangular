@@ -1,0 +1,7 @@
+<div class="comic">
+    <h3>{{ comic.nombre }}</h3>
+    <img [src]="comic.imagen" alt="{{ comic.nombre }}" 
+    style="width: auto;height: 150px;">
+    <p>{{ comic.descripcion }}</p>
+    <button (click)="seleccionarFavorito()">Seleccionar como Favorito</button>
+</div>

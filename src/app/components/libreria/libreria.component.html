@@ -1,0 +1,28 @@
+<div>
+    <h2>Lista de Comics</h2>
+
+    <div *ngFor="let comic of comics">
+        <app-comic [comic]="comic" (favoritoSeleccionado)="seleccionarFavorito(comic)">
+        </app-comic>
+    </div>
+
+    <h3>Comic Favorito</h3>
+    <p *ngIf="favorito">
+        <strong>Nombre:</strong> {{ favorito.nombre }} |
+        <strong>Descripción:</strong> {{ favorito.descripcion }}
+    </p>
+
+    <h3>Agregar nuevo Comic</h3>
+    <form #comicForm="ngForm" (ngSubmit)="agregarComic(nombre.value, imagen.value, descripcion.value)">
+        <label>Nombre:</label>
+        <input type="text" #nombre  name="nombre" required>
+
+        <label>Imagen (URL):</label>
+        <input type="text" #imagen  name="imagen" required>
+
+        <label>Descripción:</label>
+        <input type="text" #descripcion  name="descripcion" required>
+
+        <button type="submit" [disabled]="!comicForm.valid">Agregar Comic</button>
+    </form>
+</div>
